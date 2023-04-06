@@ -1365,8 +1365,16 @@ Context * restrict const              contptr)    /*+ Execution context         
 
   for (passnum = 0; passnum < passnbr; passnum ++) {
     ((passnum == 0) ? dgraphMatchHl : dgraphMatchHy) (&matedat); /* If first pass, process lightest vertices first */
+    int                 flagval;
 
-    if ((((finegrafptr->flagval & DGRAPHCOMMPTOP) != 0) ? dgraphMatchSyncPtop : dgraphMatchSyncColl) (&matedat) != 0) {
+    flagval = finegrafptr->flagval;
+#ifdef SCOTCH_NOAA_DEBUG_2
+    flagval |= DGRAPHCOMMPTOP;
+#endif /* SCOTCH_NOAA_DEBUG_2 */
+#ifdef SCOTCH_NOAA_DEBUG_3
+    flagval &= ~DGRAPHCOMMPTOP;
+#endif /* SCOTCH_NOAA_DEBUG_3 */
+    if ((((flagval & DGRAPHCOMMPTOP) != 0) ? dgraphMatchSyncPtop : dgraphMatchSyncColl) (&matedat) != 0) {
       errorPrint        ("dgraphCoarsen: cannot perform matching");
       dgraphMatchExit   (&matedat);
       dgraphCoarsenExit (&matedat.c);
