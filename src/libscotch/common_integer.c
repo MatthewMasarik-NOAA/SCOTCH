@@ -56,6 +56,8 @@
 /**                                                        **/
 /************************************************************/
 
+#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
 /*
 **  The defines and includes.
 */
