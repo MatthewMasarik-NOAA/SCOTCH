@@ -1370,15 +1370,15 @@ Context * restrict const              contptr)    /*+ Execution context         
 
     flagval = finegrafptr->flagval;
 #ifdef SCOTCH_NOAA_DEBUG_2
-    fprintf(stderr, " *************************************** ");
-    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_2          ");
-    fprintf(stderr, " *************************************** ");
+    fprintf(stderr, " *************************************** \n");
+    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_2          \n");
+    fprintf(stderr, " *************************************** \n");
     flagval |= DGRAPHCOMMPTOP;
 #endif /* SCOTCH_NOAA_DEBUG_2 */
 #ifdef SCOTCH_NOAA_DEBUG_3
-    fprintf(stderr, " *************************************** ");
-    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_3          ");
-    fprintf(stderr, " *************************************** ");
+    fprintf(stderr, " *************************************** \n");
+    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_3          \n");
+    fprintf(stderr, " *************************************** \n");
     flagval &= ~DGRAPHCOMMPTOP;
 #endif /* SCOTCH_NOAA_DEBUG_3 */
     if ((((flagval & DGRAPHCOMMPTOP) != 0) ? dgraphMatchSyncPtop : dgraphMatchSyncColl) (&matedat) != 0) {
