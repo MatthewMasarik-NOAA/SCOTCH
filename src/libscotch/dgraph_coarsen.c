@@ -62,7 +62,6 @@
 
 #define SCOTCH_DGRAPH_COARSEN
 
-#include "stdio.h"
 #include "module.h"
 #include "common.h"
 #include "dgraph.h"
@@ -1370,15 +1369,9 @@ Context * restrict const              contptr)    /*+ Execution context         
 
     flagval = finegrafptr->flagval;
 #ifdef SCOTCH_NOAA_DEBUG_2
-    fprintf(stderr, " *************************************** ");
-    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_2          ");
-    fprintf(stderr, " *************************************** ");
     flagval |= DGRAPHCOMMPTOP;
 #endif /* SCOTCH_NOAA_DEBUG_2 */
 #ifdef SCOTCH_NOAA_DEBUG_3
-    fprintf(stderr, " *************************************** ");
-    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_3          ");
-    fprintf(stderr, " *************************************** ");
     flagval &= ~DGRAPHCOMMPTOP;
 #endif /* SCOTCH_NOAA_DEBUG_3 */
     if ((((flagval & DGRAPHCOMMPTOP) != 0) ? dgraphMatchSyncPtop : dgraphMatchSyncColl) (&matedat) != 0) {

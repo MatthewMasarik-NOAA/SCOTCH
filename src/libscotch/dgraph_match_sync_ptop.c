@@ -55,7 +55,6 @@
 ** The defines and includes.
 */
 
-#include "stdio.h"
 #include "module.h"
 #include "common.h"
 #include "context.h"
@@ -197,9 +196,6 @@ DgraphMatchData * const     mateptr)              /* [norestrict:async] */
     procglbnum = procngbtab[procngbnum];
     recvloccnt = 2 * (mateptr->c.vrcvdsptab[procglbnum + 1] - mateptr->c.vrcvdsptab[procglbnum]);
 #ifdef SCOTCH_NOAA_DEBUG_1
-    fprintf(stderr, " *************************************** ");
-    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_1 - A      ");
-    fprintf(stderr, " *************************************** ");
 
     if (recvloccnt < 0) {
       fprintf (stderr, "Invalid count 1\n");
@@ -223,9 +219,6 @@ DgraphMatchData * const     mateptr)              /* [norestrict:async] */
     procglbnum = procngbtab[procngbnum];
     recvloccnt = 2 * (nsndidxtab[procngbnum] - mateptr->c.vsnddsptab[procglbnum]);
 #ifdef SCOTCH_NOAA_DEBUG_1
-    fprintf(stderr, " *************************************** ");
-    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_1 - B      ");
-    fprintf(stderr, " *************************************** ");
 
     if (recvloccnt < 0) {
       fprintf (stderr, "Invalid count 2\n");
