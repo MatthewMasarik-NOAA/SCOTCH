@@ -62,6 +62,7 @@
 
 #define SCOTCH_DGRAPH_COARSEN
 
+#include "stdio.h"
 #include "module.h"
 #include "common.h"
 #include "dgraph.h"
@@ -901,7 +902,7 @@ DgraphCoarsenData * restrict const  coarptr)
     }
 #endif /* (defined SCOTCH_PTHREAD) && (! defined DGRAPHCOARSENNOTHREAD) */
 
-    ver0locnum = multloctab[multlocnum].vertglbnum[0] - vertlocadj; /* Compute local value of (always local) first multinode vertex */ 
+    ver0locnum = multloctab[multlocnum].vertglbnum[0] - vertlocadj; /* Compute local value of (always local) first multinode vertex */
 #ifdef SCOTCH_DEBUG_DGRAPH2
     if ((ver0locnum <  finegrafptr->baseval) ||
         (ver0locnum >= finegrafptr->vertlocnnd)) {
@@ -1369,9 +1370,15 @@ Context * restrict const              contptr)    /*+ Execution context         
 
     flagval = finegrafptr->flagval;
 #ifdef SCOTCH_NOAA_DEBUG_2
+    fprintf(stderr, " *************************************** ");
+    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_2          ");
+    fprintf(stderr, " *************************************** ");
     flagval |= DGRAPHCOMMPTOP;
 #endif /* SCOTCH_NOAA_DEBUG_2 */
 #ifdef SCOTCH_NOAA_DEBUG_3
+    fprintf(stderr, " *************************************** ");
+    fprintf(stderr, "            SCOTCH_NOAA_DEBUG_3          ");
+    fprintf(stderr, " *************************************** ");
     flagval &= ~DGRAPHCOMMPTOP;
 #endif /* SCOTCH_NOAA_DEBUG_3 */
     if ((((flagval & DGRAPHCOMMPTOP) != 0) ? dgraphMatchSyncPtop : dgraphMatchSyncColl) (&matedat) != 0) {
